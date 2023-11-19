@@ -23,13 +23,15 @@ public class Device {
     @GeneratedValue
     private Integer id;
 
+    private Integer userId;
+    
     private String name;
 
     private String serialNumber;
 
     private String location;
-
-    private Integer userId;
+    
+    private String uid;
 
     private Boolean status = true;
 
