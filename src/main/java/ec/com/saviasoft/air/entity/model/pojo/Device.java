@@ -1,5 +1,6 @@
 package ec.com.saviasoft.air.entity.model.pojo;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,9 +25,12 @@ public class Device {
     private Integer id;
 
     private Integer userId;
+
+    private String userName;
     
     private String name;
 
+    @Nullable
     private String serialNumber;
 
     private String location;

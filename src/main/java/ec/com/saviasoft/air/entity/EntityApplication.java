@@ -1,7 +1,10 @@
 package ec.com.saviasoft.air.entity;
 
+import ec.com.saviasoft.air.entity.model.pojo.SystemConfig;
 import ec.com.saviasoft.air.entity.model.request.DeviceRequest;
+import ec.com.saviasoft.air.entity.model.request.SystemConfigRequest;
 import ec.com.saviasoft.air.entity.service.DeviceService;
+import ec.com.saviasoft.air.entity.service.SystemConfigService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,18 +19,25 @@ public class EntityApplication {
 
 	@Bean
 	public CommandLineRunner commandLineRunner(
-			DeviceService service
+			DeviceService service,
+			SystemConfigService systemConfigService
 	) {
 		return args -> {
 			var device = service.createDevice(DeviceRequest.builder()
 					.userId(1)
 					.name("Device 1")
+					.userName("Admin admin")
 					.serialNumber("123456789")
 					.location("Quito")
-					.uid("b3ff7c1e-85d2-11ee-b9d1-0242ac120002")
-					.status(true)
+					.build());
+
+			var systemConfig = systemConfigService.createSystemConfig(SystemConfigRequest.builder()
+					.maxMetano(123.03)
+					.maxCO2(100.03)
+					.maxPPM(100.03)
 					.build());
 			System.out.println("Device: " + device);
+			System.out.println("SystemConfig: " + systemConfig);
 		};
 	}
 }

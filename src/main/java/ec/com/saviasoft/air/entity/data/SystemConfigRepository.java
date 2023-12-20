@@ -7,5 +7,4 @@ import java.util.Optional;
 
 public interface SystemConfigRepository extends JpaRepository<SystemConfig, Integer> {
 
-    Optional<SystemConfig> findByUserId(Integer userId);
 }

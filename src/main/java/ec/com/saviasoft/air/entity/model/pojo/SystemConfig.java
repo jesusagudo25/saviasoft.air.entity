@@ -23,11 +23,10 @@ public class SystemConfig {
 
     private Integer id;
 
-    private Integer userId;
+    private Double maxMetano;
 
-    private Integer min;
+    private Double maxCO2;
 
-    private Integer max;
+    private Double maxPPM;
 
-    private Boolean notification = true;
 }
