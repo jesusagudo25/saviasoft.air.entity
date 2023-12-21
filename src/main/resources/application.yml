@@ -3,7 +3,7 @@ spring:
     name: ms-entity
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/entity}
-    username: ${DB_URL:postgres}
+    username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:panama09}
     driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
   jpa:
@@ -21,9 +21,6 @@ server:
 
 ## Configuracion del cliente de Eureka
 eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: false
     hostname: ${HOSTNAME:ms-entity}
@@ -31,3 +28,6 @@ eureka:
     secure-port-enabled: true
     non-secure-port: 80
     secure-port: 443
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
