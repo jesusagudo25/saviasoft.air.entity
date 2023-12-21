@@ -2,10 +2,10 @@ spring:
   application:
     name: ms-entity
   datasource:
-    url: jdbc:postgresql://localhost:5432/entity
-    username: airq
-    password: airq
-    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/entity}
+    username: ${DB_URL:postgres}
+    password: ${DB_PASSWORD:panama09}
+    driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
   jpa:
     hibernate:
       ddl-auto: create-drop
