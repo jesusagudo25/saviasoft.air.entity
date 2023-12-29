@@ -15,9 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DeviceService {
 
-    @Autowired
-    private UUIDUtil uuidUtil;
-
     private final DeviceRepository repository;
 
     public List<Device> getDevices() {
@@ -39,7 +36,7 @@ public class DeviceService {
                 .name(deviceRequest.getName())
                 .serialNumber(deviceRequest.getSerialNumber())
                 .location(deviceRequest.getLocation())
-                .uid(uuidUtil.generateUUID())
+                .uid(deviceRequest.getUid())
                 .status(true)
                 .createdDate(new Date())
                 .updatedDate(new Date())
@@ -52,6 +49,7 @@ public class DeviceService {
             deviceToUpdate.setName(device.getName());
             deviceToUpdate.setSerialNumber(device.getSerialNumber());
             deviceToUpdate.setLocation(device.getLocation());
+            deviceToUpdate.setUid(device.getUid());
             deviceToUpdate.setUpdatedDate(new Date());
             return repository.save(deviceToUpdate);
         }else {

@@ -29,6 +29,7 @@ public class EntityApplication {
 					.userName("Admin admin")
 					.serialNumber("123456789")
 					.location("Quito")
+					.uid("03d5d65a-5e6f-4395-ab30-100f6ea8a8f8\t\n")
 					.build());
 
 			var systemConfig = systemConfigService.createSystemConfig(SystemConfigRequest.builder()
